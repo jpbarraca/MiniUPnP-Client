@@ -14,12 +14,10 @@ view byte count statistics or add port forward rules.
 
 I found miniupnp and created a command line tool capable of
 managing every aspect allowed by the router. The result is the upnpc.c file and couple of
-changes to the miniupnpc library.
+changes to the miniupnpc library. I am able to invoke any method
+exported by my devices. However, please consider that your mileage may vary.
 
-This is a simple hack which just works with my router (ok... maybe a little more). I am able to invoke any method
-exported by the Speedtouch and my Asus WL500g. Your mileage may vary.
-
-## The main changes in this version are:
+## Main changes of this version
 
 * A new client is provided which eventually supports any action and IGD devices. Thomas initial libray only supported a small set of functions.
 * Devices, services and actions are not hard coded but downloaded from the devices at runtime. This required changing the parsing methods to support dynamic memory together with a different structure. The benefit is even if devices export non-standard methods, this client hopefully still can invoke them. Also, if someone wishes to invoke a method, it is not required to add the corresponding function to libminiupnpc. The drawback is a slightly more complicated scheme and higher memory usage.
